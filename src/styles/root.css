@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "Agdasima-Regular";
+  src: local("Agdasima-Regular"),
+    url("../assets/fonts/Agdasima-Regular.ttf") format("truetype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Agdasima-Bold";
+  src: local("Agdasima-Bold"),
+    url("../assets/fonts/Agdasima-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
