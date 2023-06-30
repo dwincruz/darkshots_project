@@ -2,13 +2,17 @@ import React from "react";
 import landingImage from "../../../assets/images/brand/cinema_bg.png";
 const Index = () => {
   const landingContent = {
-    backgroundImage:
-      "url(" + require("../../../assets/images/brand/cinema_bg.png") + ")",
     height: "100vh",
-    backgroundSize: "cover",
+    width: "100vw",
     boxSizing: "border-box",
     padding: "10%",
+    backgroundImage:
+      "url(" + require("../../../assets/images/brand/cinema_bg.png") + ")",
+    backgroundAttachment: "fixed",
+    backgroundSize: "cover",
+    position: "relative",
   };
+
   return (
     <div className="row align-items-center" style={landingContent}>
       <div className="col-7">
@@ -37,6 +41,18 @@ const Index = () => {
           Learn more
         </a>
       </div>
+      <hr
+        style={{
+          height: "200px",
+          opacity: 1,
+          background: "linear-gradient(rgb(60, 60, 60, 0), #151515)",
+          position: "absolute",
+          border: 0,
+          bottom: 0,
+          left: 0,
+          margin: 0,
+        }}
+      ></hr>
     </div>
   );
 };

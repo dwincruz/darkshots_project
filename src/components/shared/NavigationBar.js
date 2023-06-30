@@ -53,7 +53,7 @@ const NavigationBar = ({ links }) => {
                       onClick={handleItemClick}
                     >
                       <Link
-                        className="nav-link text-white text-uppercase"
+                        className="nav-link  text-uppercase"
                         to={navLink.redirectTo}
                         style={{ fontFamily: "Agdasima-Bold" }}
                       >

@@ -1,6 +1,7 @@
 import React from "react";
 import NavigationBar from "../../components/shared/NavigationBar";
 import LandingPage from "../external/landing/Index";
+import Services from "../external/services/Index";
 const ExternalLayout = () => {
   const accessLists = [
     {
@@ -38,6 +39,7 @@ const ExternalLayout = () => {
     <div className="container-fluid">
       <NavigationBar links={accessLists} />
       <LandingPage />
+      <Services />
     </div>
   );
 };

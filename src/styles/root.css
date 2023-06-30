@@ -10,3 +10,6 @@
     url("../assets/fonts/Agdasima-Bold.ttf") format("truetype");
   font-weight: bold;
 }
+body {
+  background-color: #151515;
+}
