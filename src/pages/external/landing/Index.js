@@ -7,8 +7,9 @@ const Index = () => {
     boxSizing: "border-box",
     padding: "10%",
     backgroundImage:
-      "url(" + require("../../../assets/images/brand/cinema_bg.png") + ")",
-    backgroundAttachment: "fixed",
+      "linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 95%),url(" +
+      require("../../../assets/images/brand/cinema_bg.png") +
+      ")",
     backgroundSize: "cover",
     position: "relative",
   };
@@ -41,18 +42,6 @@ const Index = () => {
           Learn more
         </a>
       </div>
-      <hr
-        style={{
-          height: "200px",
-          opacity: 1,
-          background: "linear-gradient(rgb(60, 60, 60, 0), #151515)",
-          position: "absolute",
-          border: 0,
-          bottom: 0,
-          left: 0,
-          margin: 0,
-        }}
-      ></hr>
     </div>
   );
 };

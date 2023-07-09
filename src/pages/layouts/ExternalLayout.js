@@ -2,6 +2,7 @@ import React from "react";
 import NavigationBar from "../../components/shared/NavigationBar";
 import LandingPage from "../external/landing/Index";
 import Services from "../external/services/Index";
+import Projects from "../external/project/Index";
 const ExternalLayout = () => {
   const accessLists = [
     {
@@ -40,6 +41,7 @@ const ExternalLayout = () => {
       <NavigationBar links={accessLists} />
       <LandingPage />
       <Services />
+      <Projects />
     </div>
   );
 };

@@ -1,13 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const ThemeHeaders = ({ title }) => {
-  const [value, setValue] = useState(title);
-
+  const [valueHeader, setValueHeader] = useState(title);
+  const formmattedHeaders = useRef(null);
+  useEffect(() => {
+    const textHandler = (str) => {
+      const splitString = str
+        .split(" ")
+        .map((item, index) => {
+          return index == 1 ? item + "<br>" : item ?? item;
+        })
+        .join(" ");
+      // const reverseString = splitString.reverse();
+      formmattedHeaders.current.innerHTML = splitString;
+      return splitString;
+    };
+    textHandler(valueHeader);
+  });
   return (
     <>
-      <h1 className="custom-headers text-white text-uppercase" id="breakLine">
-        {value ?? "No value"}
-      </h1>
+      <h1
+        className="custom-headers text-white text-uppercase my-5"
+        ref={formmattedHeaders}
+      ></h1>
     </>
   );
 };

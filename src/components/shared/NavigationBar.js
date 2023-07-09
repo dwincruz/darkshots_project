@@ -15,7 +15,6 @@ const NavigationBar = ({ links }) => {
     event.target.classList.add("active");
     setActiveItem(event.target);
   };
-
   const logoImage = {
     height: "30px",
     objectFit: "cover",
