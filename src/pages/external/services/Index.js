@@ -47,16 +47,16 @@ const Index = () => {
       className="row align-items-center services-content"
       style={servicesContent}
     >
-      <div className="col-lg-4 col-md-4, col-sm-12 col-12">
+      <div className="col-lg-6 col-md-6, col-sm-12 col-12">
         <ThemeHeaders title={textHeading}></ThemeHeaders>
         <div>
-          <p className="text-white" style={{ marginTop: "100px" }}>
+          <p className="text-white" style={{ marginTop: "50px" }}>
             {textDescription}
           </p>
         </div>
         <div className="d-flex item-identifier mt-5"></div>
       </div>
-      <div className="col-lg-8 col-md-4 col-sm-12 col-12">
+      <div className="col-lg-6 col-md-6 col-sm-12 col-12">
         <Carousel items={services} transitionSpeed={5000} />
       </div>
     </div>

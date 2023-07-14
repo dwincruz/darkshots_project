@@ -62,7 +62,7 @@ const Index = () => {
 
   return (
     <div className="row align-items-center" style={projectContent}>
-      <div className="col-lg-5 col-md-5, col-sm-12 col-12">
+      <div className=" col-12">
         <ThemeHeaders title={textHeading} />
       </div>
       <div className="col-12">

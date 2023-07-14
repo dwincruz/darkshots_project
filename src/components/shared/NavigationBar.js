@@ -4,7 +4,6 @@ import logo from "../../assets/images/brand/darkshot-logo.png";
 
 const NavigationBar = ({ links }) => {
   const [navLinks, setNavLinks] = useState(links);
-  console.log(navLinks);
   const navLinkRef = useRef(null); //in-progress adding useRef hook
   const [activeItem, setActiveItem] = useState(null);
 

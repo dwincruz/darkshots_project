@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-
 const Carousel = ({ items, transitionSpeed }) => {
   const [title, setTitle] = useState("");
   const [carouselLeftImage, setCarouselLeftImage] = useState("");
@@ -77,7 +76,7 @@ const Carousel = ({ items, transitionSpeed }) => {
         </h1>
       </div>
       <div className="row justify-content-center mt-5">
-        <div className="col-3 px-3">
+        <div className="col-4 ">
           <img
             src={
               carouselLeftImage === ""
@@ -87,7 +86,7 @@ const Carousel = ({ items, transitionSpeed }) => {
             className="carousel-image"
           />
         </div>
-        <div className="col-3 px-3">
+        <div className="col-4 ">
           <img
             src={
               carouselRightImage === ""

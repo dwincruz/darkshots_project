@@ -15,7 +15,10 @@ const ThemeHeaders = ({ title }) => {
       formmattedHeaders.current.innerHTML = splitString;
       return splitString;
     };
-    textHandler(valueHeader);
+
+    typeof valueHeader === "string"
+      ? textHandler(valueHeader ?? "No headers")
+      : console.log("must be string");
   });
   return (
     <>

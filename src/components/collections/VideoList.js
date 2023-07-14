@@ -2,10 +2,10 @@ import { useState, useEffect, useRef } from "react";
 
 const VideoCollection = ({ items }) => {
   const [videoLists, setVideoLists] = useState(items);
-  const [videoStatus, setVideoStatus] = useState(null);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const activeVideo = useRef(null);
-  const j = useRef(null);
+  const videoThumbnail = useRef(null);
+  const videoStatus = useRef(null);
 
   const videoPlayList = {
     cursor: "pointer",
@@ -16,15 +16,14 @@ const VideoCollection = ({ items }) => {
     setSelectedVideo(activeVideo.current.src);
   };
   useEffect(() => {
-    const x = document.querySelectorAll(".video-thumbnail");
-    // console.log(selectedVideo);
+    videoThumbnail.current = document.querySelectorAll(".video-thumbnail");
 
-    j.current = document.querySelectorAll(".video-status");
+    videoStatus.current = document.querySelectorAll(".video-status");
 
-    for (let i = 0; i < x.length; i++) {
-      x[i].getAttribute("videosource") === selectedVideo
-        ? (j.current[i].innerText = "Now Playing")
-        : (j.current[i].innerText = "");
+    for (let i = 0; i < videoThumbnail.current.length; i++) {
+      videoThumbnail.current[i].getAttribute("videosource") === selectedVideo
+        ? (videoStatus.current[i].innerText = "Now Playing")
+        : (videoStatus.current[i].innerText = "");
     }
   });
 
@@ -59,7 +58,10 @@ const VideoCollection = ({ items }) => {
               />
               <div className="card-body px-0">
                 <h5 className="card-title text-white">{list.title}</h5>
-                <p className="card-text text-white video-status" useRef={j}></p>
+                <p
+                  className="card-text text-white video-status"
+                  useRef={videoStatus}
+                ></p>
               </div>
             </div>
           );
