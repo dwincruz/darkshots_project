@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import ThemeHeaders from "../../../components/textHeaders/ThemeHeaders";
-import Carousel from "../../../components/list/Carousel";
+import ThemeHeader from "../../../components/textHeaders/ThemeHeader";
+import Carousel from "../../../components/collections/Carousel";
 const Index = () => {
   const servicesContent = {
     minHeight: "100vh",
@@ -48,7 +48,7 @@ const Index = () => {
       style={servicesContent}
     >
       <div className="col-lg-6 col-md-6, col-sm-12 col-12">
-        <ThemeHeaders title={textHeading}></ThemeHeaders>
+        <ThemeHeader title={textHeading} />
         <div>
           <p className="text-white" style={{ marginTop: "50px" }}>
             {textDescription}

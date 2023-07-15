@@ -55,14 +55,10 @@ const Footer = () => {
       </div>
 
       <div className="col-lg-3">
-        <List title={title} items={documents} itemName={documents.name}></List>
+        <List title={title} items={documents} itemName={documents.name} />
       </div>
       <div className="col-lg-3">
-        <List
-          title={title2}
-          items={socialMedia}
-          itemName={socialMedia.name}
-        ></List>
+        <List title={title2} items={socialMedia} itemName={socialMedia.name} />
       </div>
     </footer>
   );

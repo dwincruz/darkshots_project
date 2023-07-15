@@ -11,7 +11,7 @@ const Card = ({ title, subTitle, image }) => {
   });
   return (
     <div className="card col-lg-2 px-0 bg-transparent rounded-0 position-relative">
-      <img src={imageValue} class="card-img-top rounded-0" />
+      <img src={imageValue} className="card-img-top rounded-0" />
       <div className="card-body px-0">
         <h5 className="card-title text-white">{titleValue}</h5>
         <p className="card-text text-white">{subTitleValue}</p>

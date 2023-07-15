@@ -1,5 +1,5 @@
 import React from "react";
-import ThemeHeaders from "../../../components/textHeaders/ThemeHeaders";
+import ThemeHeader from "../../../components/textHeaders/ThemeHeader";
 import profile from "../../../assets/images/team/person1.jpg";
 import profile2 from "../../../assets/images/team/person2.jpg";
 import Team from "./Team";
@@ -52,7 +52,7 @@ const Index = () => {
   return (
     <div className="row align-items-center " style={aboutContent}>
       <div className="col-lg-12">
-        <ThemeHeaders title={textHeading} />
+        <ThemeHeader title={textHeading} />
       </div>
       <div className="col-lg-12" style={teamStyle}>
         <Team
@@ -64,7 +64,7 @@ const Index = () => {
         />
       </div>
       <div className="col-lg-12 ">
-        <ThemeHeaders title={textHeading2} />
+        <ThemeHeader title={textHeading2} />
       </div>
       <div className="col-lg-12 ">
         <div className="row justify-content-center align-items">

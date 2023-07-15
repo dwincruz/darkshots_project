@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const ThemeHeaders = ({ title }) => {
+const ThemeHeader = ({ title }) => {
   const [valueHeader, setValueHeader] = useState(title);
   const formmattedHeaders = useRef(null);
   useEffect(() => {
@@ -30,4 +30,4 @@ const ThemeHeaders = ({ title }) => {
   );
 };
 
-export default ThemeHeaders;
+export default ThemeHeader;

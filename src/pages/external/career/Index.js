@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import ThemeHeaders from "../../../components/textHeaders/ThemeHeaders";
+import ThemeHeader from "../../../components/textHeaders/ThemeHeader";
 import Card from "../../../components/collections/Cards";
+import ThemeButton from "../../../components/buttons/ThemeButton";
 const Index = () => {
   const textHeading = "We're Hiring! Grab the opportunity";
   const textMessage = "Let your talents leads to career path.";
@@ -66,16 +67,19 @@ const Index = () => {
   return (
     <div className="row align-items-center" style={careerContent}>
       <div className="col-12">
-        <ThemeHeaders title={textHeading} />
+        <ThemeHeader title={textHeading} />
       </div>
       <div className="col-12 ">
         <div className="row mb-5">
-          <p className="text-white">
+          <div className="text-white">
             {textMessage}
-            <button className="btn btn-sm btn-light rounded-0 mx-2">
-              Apply now
-            </button>
-          </p>
+            <ThemeButton
+              textName="Apply now"
+              enableModal={true}
+              modalName="openModalCareerApplication"
+              modalHeader="open it"
+            />
+          </div>
         </div>
         <div className="row justify-content-center align-items-center gap-2">
           {jobPositions.map((jobPosition) => {

@@ -1,5 +1,5 @@
-import ThemeHeaders from "../../../components/textHeaders/ThemeHeaders";
-import VideoList from "../../../components/list/VideoList";
+import ThemeHeader from "../../../components/textHeaders/ThemeHeader";
+import VideoList from "../../../components/collections/VideoList";
 const Index = () => {
   const textHeading = "We Proudly present our VideoGraphy";
   const projectContent = {
@@ -63,7 +63,7 @@ const Index = () => {
   return (
     <div className="row align-items-center" style={projectContent}>
       <div className=" col-12">
-        <ThemeHeaders title={textHeading} />
+        <ThemeHeader title={textHeading} />
       </div>
       <div className="col-12">
         <VideoList items={projects} />

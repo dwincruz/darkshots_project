@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import CardsInnerText from "../../../components/collections/CardsInnerTexts";
+import CardsInnerText from "../../../components/collections/CardsInnerText";
 const Team = ({ items, itemCenter, image, title, subTitle }) => {
   const [enableCenteredImage, setEnableCenteredImage] = useState([]);
   const [cardLists, setCardLists] = useState(items);

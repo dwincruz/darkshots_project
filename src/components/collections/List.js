@@ -8,7 +8,10 @@ const List = ({ items, title }) => {
       </h5>
       {lists.map((item) => {
         return (
-          <li className="list-group-item bg-transparent text-white border-0">
+          <li
+            key={item.id}
+            className="list-group-item bg-transparent text-white border-0"
+          >
             {item.name}
           </li>
         );

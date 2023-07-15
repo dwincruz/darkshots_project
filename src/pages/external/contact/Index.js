@@ -1,5 +1,7 @@
+import { useEffect, useRef } from "react";
+import ThemeButton from "../../../components/buttons/ThemeButton";
 import InputField from "../../../components/forms/InputField";
-import ThemeHeaders from "../../../components/textHeaders/ThemeHeaders";
+import ThemeHeader from "../../../components/textHeaders/ThemeHeader";
 const Index = () => {
   const contactContent = {
     minHeight: "100vh",
@@ -9,13 +11,23 @@ const Index = () => {
     position: "relative",
   };
   const textHeading = "We love to hear from you";
+  const form = useRef(null);
+
+  const contactHandler = (e) => {
+    e.preventDefault();
+  };
   return (
     <div className="row align-items-center" style={contactContent}>
       <div className="col-12 mb-5">
-        <ThemeHeaders title={textHeading} />
+        <ThemeHeader title={textHeading} />
       </div>
       <div className="col-12  m-auto">
-        <form className="row align-items-center">
+        <form
+          onSubmit={contactHandler}
+          action=""
+          method="post"
+          className="row align-items-center"
+        >
           <div className="col-lg-5">
             <InputField name="name" type="text" />
           </div>
@@ -25,13 +37,14 @@ const Index = () => {
           <div className="col-lg-10">
             <InputField name="message" type="text" />
           </div>
-          <div className="col-lg-10">
-            <button
-              className="btn btn-sm btn-light rounded-0 float-end"
-              type="button"
-            >
-              Send Message
-            </button>
+          <div className="col-lg-10 d-flex justify-content-end">
+            <ThemeButton
+              textName="Send Message"
+              enableModal={true}
+              modalName="confirmInputRequest"
+              modalHeader="Confirm"
+              modalBody="Confirm Submit"
+            />
           </div>
         </form>
       </div>
