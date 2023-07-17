@@ -8,7 +8,10 @@ const NavigationBar = ({ links }) => {
   const [activeItem, setActiveItem] = useState(null);
 
   const handleLogin = (event) => {
-    alert(event);
+    window.location.href = window.origin + "/signin";
+  };
+  const handleRegister = (event) => {
+    window.location.href = window.origin + "/register";
   };
   const handleItemClick = (event) => {
     if (activeItem) {
@@ -65,8 +68,12 @@ const NavigationBar = ({ links }) => {
                 })
               : ``}
           </ul>
-          <ThemeButton textName="Register" onClick={handleLogin} />
-          <ThemeButton textName="Sign in" primary={false} />
+          <ThemeButton textName="Register" clickTrigger={handleRegister} />
+          <ThemeButton
+            textName="Sign in"
+            primary={false}
+            clickTrigger={handleLogin}
+          />
         </div>
       </>
     </nav>
