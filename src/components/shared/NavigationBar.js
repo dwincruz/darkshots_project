@@ -6,12 +6,28 @@ const NavigationBar = ({ links }) => {
   const [navLinks, setNavLinks] = useState(links);
   const navLinkRef = useRef(null); //in-progress adding useRef hook
   const [activeItem, setActiveItem] = useState(null);
+  const [activeUser, setActiveUser] = useState(null);
+  const currentUserAPI = "http://localhost:3001/api/user/current-user";
+  const signoutUserAPI = "http://localhost:3001/api/user/logout";
 
   const handleLogin = (event) => {
     window.location.href = window.origin + "/signin";
   };
   const handleRegister = (event) => {
     window.location.href = window.origin + "/register";
+  };
+  const handleLogout = (event) => {
+    fetch(signoutUserAPI, {
+      method: "post",
+      credentials: "include",
+    })
+      .then(async (response) => {
+        if (response.status == 200) {
+          const status = await response.json();
+          setActiveUser(null);
+        }
+      })
+      .catch((error) => console.log({ error: error.message }));
   };
   const handleItemClick = (event) => {
     if (activeItem) {
@@ -24,6 +40,27 @@ const NavigationBar = ({ links }) => {
     height: "30px",
     objectFit: "cover",
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        await fetch(currentUserAPI, {
+          method: "post",
+          credentials: "include",
+        })
+          .then(async (response) => {
+            if (response.status == 200) {
+              const data = await response.json();
+              setActiveUser(data);
+            }
+          })
+          .catch((error) => console.log({ error: error.message }));
+      } catch (error) {
+        console.log({ message: error.message });
+      }
+    };
+    fetchData();
+  });
 
   return (
     <nav
@@ -68,12 +105,39 @@ const NavigationBar = ({ links }) => {
                 })
               : ``}
           </ul>
-          <ThemeButton textName="Register" clickTrigger={handleRegister} />
-          <ThemeButton
-            textName="Sign in"
-            primary={false}
-            clickTrigger={handleLogin}
-          />
+          {activeUser != null ? (
+            <ul className="navbar-nav ">
+              <li className="nav-item dropdown">
+                <Link
+                  className="nav-link dropdown-toggle text-white  text-uppercase"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  style={{ fontFamily: "Agdasima-Bold" }}
+                >
+                  {activeUser.username}
+                </Link>
+                <ul className="dropdown-menu">
+                  <li>
+                    <ThemeButton
+                      textName="Logout"
+                      clickTrigger={handleLogout}
+                    />
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          ) : (
+            <>
+              <ThemeButton textName="Register" clickTrigger={handleRegister} />
+              <ThemeButton
+                textName="Sign in"
+                primary={false}
+                clickTrigger={handleLogin}
+              />
+            </>
+          )}
         </div>
       </>
     </nav>
