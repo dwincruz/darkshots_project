@@ -11,8 +11,8 @@ const Index = () => {
   const [userData, setUserData] = useState([]);
   const [enableSubmit, setEnableSubmit] = useState(false);
 
-  const userDataAPI = "http://localhost:3001/api/users/";
-  const signoutUserAPI = "http://localhost:3001/api/user/logout";
+  const userDataAPI = "https://darkshots.onrender.com/api/users/";
+  const signoutUserAPI = "https://darkshots.onrender.com/api/user/logout";
   const tableHeaders = [
     {
       id: 1,
