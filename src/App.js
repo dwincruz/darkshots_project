@@ -15,8 +15,8 @@ function App() {
       <Route path="/signin" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/admin" element={<InternalLayout />}>
-        <Route path="/admin/dashboard" element={<Dashboard />}></Route>
-        <Route path="/admin/users" element={<User />}></Route>
+        {/* <Route path="/admin/dashboard" element={<Dashboard />}></Route>
+        <Route path="/admin/users" element={<User />}></Route> */}
       </Route>
 
       <Route path="*" element={<UnknownPageLayout />} />
