@@ -10,12 +10,6 @@ const NavigationBar = ({ links }) => {
   const currentUserAPI = "http://localhost:3001/api/user/current-user";
   const signoutUserAPI = "http://localhost:3001/api/user/logout";
 
-  const handleLogin = (event) => {
-    window.location.href = window.origin + "/signin";
-  };
-  const handleRegister = (event) => {
-    window.location.href = window.origin + "/register";
-  };
   const handleLogout = (event) => {
     fetch(signoutUserAPI, {
       method: "post",
@@ -93,13 +87,13 @@ const NavigationBar = ({ links }) => {
                       className="nav-item"
                       onClick={handleItemClick}
                     >
-                      <Link
+                      <a
                         className="nav-link  text-uppercase"
-                        to={navLink.redirectTo}
+                        href={navLink.redirectTo}
                         style={{ fontFamily: "Agdasima-Bold" }}
                       >
                         {navLink.name}
-                      </Link>
+                      </a>
                     </li>
                   );
                 })
@@ -130,11 +124,15 @@ const NavigationBar = ({ links }) => {
             </ul>
           ) : (
             <>
-              <ThemeButton textName="Register" clickTrigger={handleRegister} />
+              <ThemeButton
+                textName="Register"
+                redirectTo={window.origin + "/register"}
+              />
+
               <ThemeButton
                 textName="Sign in"
                 primary={false}
-                clickTrigger={handleLogin}
+                redirectTo={window.origin + "/signin"}
               />
             </>
           )}

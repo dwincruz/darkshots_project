@@ -2,11 +2,13 @@ import React from "react";
 import ThemeHeader from "../textHeaders/ThemeHeader";
 import ThemeButton from "../buttons/ThemeButton";
 const Modal = ({
+  enableTheme,
   modalName,
   modalHeader,
   modalBody,
   modalCloseButtonText,
   modalSubmitButtonText,
+  modalSubmitAction,
 }) => {
   const preventSubmit = (e) => {
     e.preventDefault();
@@ -14,7 +16,11 @@ const Modal = ({
   return (
     <div
       className="modal fade"
-      style={{ backgroundColor: "black" }}
+      style={
+        enableTheme === false
+          ? { backgroundColor: "trasnsparent" }
+          : { backgroundColor: "black" }
+      }
       data-bs-backdrop="static"
       id={modalName}
       aria-hidden="true"
@@ -22,10 +28,21 @@ const Modal = ({
       tabIndex="-1"
     >
       <div className="modal-dialog modal-xl modal-dialog-centered ">
-        <div className="modal-content" style={{ backgroundColor: "black" }}>
+        <div
+          className="modal-content"
+          style={
+            enableTheme === false
+              ? { backgroundColor: "white" }
+              : { backgroundColor: "black" }
+          }
+        >
           <div className="modal-header border-0">
             <h1 className="modal-title fs-5 " id={modalName}>
-              <ThemeHeader title={modalHeader}></ThemeHeader>
+              {enableTheme === false ? (
+                modalHeader
+              ) : (
+                <ThemeHeader title={modalHeader}></ThemeHeader>
+              )}
             </h1>
           </div>
           <div className="modal-body">
@@ -33,10 +50,15 @@ const Modal = ({
           </div>
           <div className="modal-footer border-0 d-flex justify-content-start">
             <button
-              onClick={preventSubmit}
-              className="btn btn-transparent text-white text-uppercase rounded-0"
+              className={
+                enableTheme === false
+                  ? "btn btn-transparent text-dark text-uppercase rounded-0"
+                  : "btn btn-transparent text-white text-uppercase rounded-0"
+              }
               data-bs-dismiss="modal"
-              style={{ fontFamily: "Agdasima-Bold" }}
+              style={
+                enableTheme === false ? {} : { fontFamily: "Agdasima-Bold" }
+              }
             >
               <i className="ri-arrow-left-line "></i>
               {modalCloseButtonText ?? "close"}
@@ -45,8 +67,11 @@ const Modal = ({
             {modalSubmitButtonText ? (
               <button
                 type="submit"
+                onClick={modalSubmitAction}
                 className="btn btn-light btn-theme  rounded-0 mx-1 text-uppercase"
-                style={{ fontFamily: "Agdasima-Bold" }}
+                style={
+                  enableTheme === false ? {} : { fontFamily: "Agdasima-Bold" }
+                }
               >
                 {modalSubmitButtonText}
               </button>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ThemeHeader from "../../../components/textHeaders/ThemeHeader";
 import InputField from "../../../components/forms/InputField";
 import ThemeButton from "../../../components/buttons/ThemeButton";
+import { Link } from "react-router-dom";
 const Index = () => {
   const [nameValue, setNameValue] = useState(null);
   const [contactValue, setContactValue] = useState(null);
@@ -62,7 +63,7 @@ const Index = () => {
         }, 5000);
       });
   };
-  const textHeading = "Create new account";
+  const textHeading = "Register as new Client";
 
   return (
     <div
@@ -71,7 +72,7 @@ const Index = () => {
     >
       <div className="row">
         <div className="col-12 ">
-          <form method="post" action="" className="row">
+          <form className="row">
             <div className="col-12">
               <ThemeHeader title={textHeading} />
             </div>
@@ -120,14 +121,14 @@ const Index = () => {
         </div>
         <div className="col-2">
           <div className="float-start">
-            <button
-              onClick={handleBack}
+            <Link
+              to={window.origin}
               className="btn btn-transparent text-white text-uppercase rounded-0"
               style={{ fontFamily: "Agdasima-Bold" }}
             >
               <i className="ri-arrow-left-line "></i>
               back
-            </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,8 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import ThemeModal from "../popups/ThemeModal";
+import { Link } from "react-router-dom";
 const ThemeButton = ({
   textName,
   clickTrigger,
+  redirectTo,
+  enableTheme,
   enableModal,
   type,
   modalName,
@@ -10,6 +13,7 @@ const ThemeButton = ({
   modalBody,
   modalCloseButtonText,
   modalSubmitButtonText,
+  modalSubmitAction,
   primary,
 }) => {
   const btn = useRef(null);
@@ -35,33 +39,41 @@ const ThemeButton = ({
   return (
     <>
       {primary === false ? (
-        <button
+        <Link
           ref={btn}
+          to={redirectTo}
           type={type ? "submit" : "button"}
           className="btn  btn-dark btn-theme border rounded-0 mx-1 text-uppercase"
           onClick={clickTrigger}
           style={{ fontFamily: "Agdasima-Bold" }}
         >
           <b>{textName ?? "Empty"}</b>
-        </button>
+        </Link>
       ) : (
-        <button
+        <Link
           ref={btn}
+          to={redirectTo}
           type={type ? "submit" : "button"}
-          className="btn btn-light btn-theme  rounded-0 mx-1 text-uppercase"
+          className="btn btn-light btn-theme  rounded-0 mx-1 "
           onClick={clickTrigger}
-          style={{ fontFamily: "Agdasima-Bold" }}
+          style={
+            enableTheme == false
+              ? {}
+              : { fontFamily: "Agdasima-Bold", textTransform: "capitalize" }
+          }
         >
           <b>{textName ?? "Empty"}</b>
-        </button>
+        </Link>
       )}
       {enableModal === true ? (
         <ThemeModal
+          enableTheme={enableTheme}
           modalName={modalName}
           modalHeader={modalHeader}
           modalBody={modalBody}
           modalCloseButtonText={modalCloseButtonText}
           modalSubmitButtonText={modalSubmitButtonText}
+          modalSubmitAction={modalSubmitAction}
         />
       ) : (
         enableModal === false

@@ -18,6 +18,7 @@ const Index = () => {
   return (
     <div
       className="row align-items-center landing-section"
+      id=""
       style={landingContent}
     >
       <div className="col-7">

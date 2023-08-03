@@ -11,6 +11,8 @@ import "bootstrap/dist/js/bootstrap.js";
 import "./styles/root.css";
 import "./styles/custom.css";
 import "./styles/mediaQueries.css";
+import "./styles/admin.css";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
