@@ -9,7 +9,7 @@ const Index = () => {
   const [passwordValue, setPasswordValue] = useState(null);
   const [loadingState, setLoadingState] = useState(false);
   const [message, setMessage] = useState(null);
-  const apiEndpoint = "http://localhost:3001/api/user/login";
+  const apiEndpoint = "https://darkshots.onrender.com/api/user/login";
   const loginContent = {
     minHeight: "100vh",
     width: "100vw",

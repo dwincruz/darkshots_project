@@ -7,8 +7,8 @@ const NavigationBar = ({ links }) => {
   const navLinkRef = useRef(null); //in-progress adding useRef hook
   const [activeItem, setActiveItem] = useState(null);
   const [activeUser, setActiveUser] = useState(null);
-  const currentUserAPI = "http://localhost:3001/api/user/current-user";
-  const signoutUserAPI = "http://localhost:3001/api/user/logout";
+  const currentUserAPI = "https://darkshots.onrender.com/current-user";
+  const signoutUserAPI = "https://darkshots.onrender.com/logout";
 
   const handleLogout = (event) => {
     fetch(signoutUserAPI, {
