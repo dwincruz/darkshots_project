@@ -2,6 +2,7 @@ import React from "react";
 import ThemeHeader from "../../../components/textHeaders/ThemeHeader";
 import profile from "../../../assets/images/team/person1.jpg";
 import profile2 from "../../../assets/images/team/person2.jpg";
+import profile3 from "../../../assets/images/team/person3.jpg";
 import Team from "./Team";
 const textHeading = "About us: Meet our team";
 const textHeading2 = "About us: Mission & Vision";
@@ -27,7 +28,7 @@ const Index = () => {
       id: 2,
       name: "Trizzia Jovie Tinte",
       position: "Art Director",
-      image: profile2,
+      image: profile3,
     },
     {
       id: 3,
