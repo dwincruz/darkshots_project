@@ -53,7 +53,7 @@ const NavigationBar = ({ links }) => {
         console.log({ message: error.message });
       }
     };
-    fetchData();
+    currentUserAPI === null ?? fetchData();
   });
 
   return (

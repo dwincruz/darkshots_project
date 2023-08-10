@@ -63,7 +63,7 @@ const Index = () => {
               enableTheme={false}
               textName={
                 <span>
-                  <i class="ri-add-fill"></i>New
+                  <i className="ri-add-fill"></i>New
                 </span>
               }
             />
