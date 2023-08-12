@@ -8,8 +8,8 @@ const NavigationBar = ({ links }) => {
   const [activeItem, setActiveItem] = useState(null);
   const [activeUser, setActiveUser] = useState(null);
   const navigate = useNavigate();
-  const currentUserAPI = "http://localhost:3001/api/user/current-user";
-  const signoutUserAPI = "http://localhost:3001/api/user/logout";
+  const currentUserAPI = "https://darkshots.onrender.com/api/user/current-user";
+  const signoutUserAPI = "https://darkshots.onrender.com/api/user/logout";
   //https://darkshots.onrender.com/logout //http://localhost:3001
 
   const handleLogout = (event) => {

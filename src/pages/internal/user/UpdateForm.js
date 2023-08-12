@@ -27,7 +27,7 @@ const UpdateForm = ({ data }) => {
     setPasswordValue(event.target.value);
   };
 
-  const updateUserAPI = "http://localhost:3001/api/user/";
+  const updateUserAPI = "https://darkshots.onrender.com/api/user/";
   const handleSubmit = async (event) => {
     event.preventDefault();
     await fetch(updateUserAPI + data._id, {

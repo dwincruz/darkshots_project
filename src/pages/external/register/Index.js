@@ -8,7 +8,7 @@ const Index = () => {
   const [contactValue, setContactValue] = useState(null);
   const [usernameValue, setUsernameValue] = useState(null);
   const [passwordValue, setPasswordValue] = useState(null);
-  const apiEndpoint = "http://localhost:3001/api/user";
+  const apiEndpoint = "https://darkshots.onrender.com/api/user";
   const registerContent = {
     minHeight: "100vh",
     width: "100vw",
