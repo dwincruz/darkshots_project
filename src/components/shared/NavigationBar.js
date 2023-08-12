@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/brand/darkshot-logo.png";
 import ThemeButton from "../buttons/ThemeButton";
 const NavigationBar = ({ links }) => {
@@ -7,8 +7,10 @@ const NavigationBar = ({ links }) => {
   const navLinkRef = useRef(null); //in-progress adding useRef hook
   const [activeItem, setActiveItem] = useState(null);
   const [activeUser, setActiveUser] = useState(null);
-  const currentUserAPI = "https://darkshots.onrender.com/current-user";
-  const signoutUserAPI = "https://darkshots.onrender.com/logout";
+  const navigate = useNavigate();
+  const currentUserAPI = "http://localhost:3001/api/user/current-user";
+  const signoutUserAPI = "http://localhost:3001/api/user/logout";
+  //https://darkshots.onrender.com/logout //http://localhost:3001
 
   const handleLogout = (event) => {
     fetch(signoutUserAPI, {
@@ -19,6 +21,7 @@ const NavigationBar = ({ links }) => {
         if (response.status == 200) {
           const status = await response.json();
           setActiveUser(null);
+          window.location = window.origin;
         }
       })
       .catch((error) => console.log({ error: error.message }));
@@ -34,26 +37,25 @@ const NavigationBar = ({ links }) => {
     height: "30px",
     objectFit: "cover",
   };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        await fetch(currentUserAPI, {
-          method: "post",
-          credentials: "include",
+  const fetchData = async () => {
+    try {
+      await fetch(currentUserAPI, {
+        method: "post",
+        credentials: "include",
+      })
+        .then(async (response) => {
+          if (response.status == 200) {
+            const data = await response.json();
+            setActiveUser(data);
+          }
         })
-          .then(async (response) => {
-            if (response.status == 200) {
-              const data = await response.json();
-              setActiveUser(data);
-            }
-          })
-          .catch((error) => console.log({ error: error.message }));
-      } catch (error) {
-        console.log({ message: error.message });
-      }
-    };
-    currentUserAPI === null ?? fetchData();
+        .catch((error) => console.log({ error: error.message }));
+    } catch (error) {
+      console.log({ message: error.message });
+    }
+  };
+  useEffect(() => {
+    fetchData();
   });
 
   return (

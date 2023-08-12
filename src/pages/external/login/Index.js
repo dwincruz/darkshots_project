@@ -3,13 +3,15 @@ import ThemeHeader from "../../../components/textHeaders/ThemeHeader";
 import InputField from "../../../components/forms/InputField";
 import ThemeButton from "../../../components/buttons/ThemeButton";
 import loading from "../../../assets/images/placeholder/loading.gif";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Index = () => {
   const [usernameValue, setUsernameValue] = useState(null);
   const [passwordValue, setPasswordValue] = useState(null);
   const [loadingState, setLoadingState] = useState(false);
   const [message, setMessage] = useState(null);
+  const navigate = useNavigate();
   const apiEndpoint = "https://darkshots.onrender.com/api/user/login";
+  //https://darkshots.onrender.com //http://localhost:3001
   const loginContent = {
     minHeight: "100vh",
     width: "100vw",
@@ -50,8 +52,7 @@ const Index = () => {
             setTimeout(() => {
               setLoadingState(false);
               setMessage(null);
-              // window.location.href = window.origin + "/admin/users";
-              <Navigate to="/admin/users" />;
+              navigate("/admin/users");
             }, 2000);
             break;
           case 500:
