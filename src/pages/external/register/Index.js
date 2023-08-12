@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ThemeHeader from "../../../components/textHeaders/ThemeHeader";
 import InputField from "../../../components/forms/InputField";
 import ThemeButton from "../../../components/buttons/ThemeButton";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 const Index = () => {
   const [nameValue, setNameValue] = useState(null);
   const [contactValue, setContactValue] = useState(null);
@@ -31,6 +31,7 @@ const Index = () => {
   };
   const handleBack = (e) => {
     window.location.href = window.origin;
+    <Navigate to="/" />;
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,23 +46,27 @@ const Index = () => {
       }),
     })
       .then((response) => {
-        response.json();
-      })
-      .then((data) => {
-        console.log(data);
+        if (response.status === 200) {
+          response.json();
+          alert("successfully created");
+          setTimeout(() => {
+            <Navigate to="/" />;
+          }, 2000);
+        }
       })
       .catch((error) => {
         console.log(error.message);
-      })
-      .finally(() => {
-        setTimeout(() => {
-          alert("success");
-          setNameValue("");
-          setContactValue("");
-          setUsernameValue("");
-          setPasswordValue("");
-        }, 5000);
       });
+    // .finally(() => {
+    //   setTimeout(() => {
+    //     alert("success");
+    //     setNameValue("");
+    //     setContactValue("");
+    //     setUsernameValue("");
+    //     setPasswordValue("");
+    //     <Navigate to="/admin/users" />;
+    //   }, 1000);
+    // });
   };
   const textHeading = "Register as new Client";
 

@@ -3,7 +3,7 @@ import ThemeHeader from "../../../components/textHeaders/ThemeHeader";
 import InputField from "../../../components/forms/InputField";
 import ThemeButton from "../../../components/buttons/ThemeButton";
 import loading from "../../../assets/images/placeholder/loading.gif";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 const Index = () => {
   const [usernameValue, setUsernameValue] = useState(null);
   const [passwordValue, setPasswordValue] = useState(null);
@@ -50,7 +50,8 @@ const Index = () => {
             setTimeout(() => {
               setLoadingState(false);
               setMessage(null);
-              window.location.href = window.origin + "/admin/users";
+              // window.location.href = window.origin + "/admin/users";
+              <Navigate to="/admin/users" />;
             }, 2000);
             break;
           case 500:
