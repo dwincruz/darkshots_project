@@ -47,7 +47,7 @@ const VideoCollection = ({ items }) => {
           return (
             <div
               key={list.id}
-              className="card bg-transparent  col-2 px-0 videos"
+              className="card bg-transparent col-md-2 col-sm-6 col-6   px-0 videos"
             >
               <img
                 src={list.media.thumbnail}

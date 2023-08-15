@@ -10,10 +10,10 @@ const CardsInnerText = ({ title, subTitle, image }) => {
     setImageValue(image);
   });
   return (
-    <div className="card card-inner-text col-lg-3 px-0 bg-transparent rounded-0 position-relative">
+    <div className="card bg-transparent rounded-0 position-relative">
       <img
         src={imageValue}
-        className="card-img-top rounded-0"
+        className="card-img-top img img-fluid rounded-0"
         style={{ height: "300px" }}
       />
       <div className="card-body  position-absolute sticky-bottom">

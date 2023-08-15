@@ -24,8 +24,10 @@ const Carousel = ({ items, transitionSpeed }) => {
       image.style.width = "180px";
     });
 
+    // carouselTitle.current.style.marginBottom = "80px";
+
     firstImage.current = document.querySelector(".carousel-image:nth-child(1)");
-    firstImage.current.style.marginTop = "30px";
+    firstImage.current.style.marginTop = "40px";
 
     for (
       iteration.current;
@@ -69,35 +71,34 @@ const Carousel = ({ items, transitionSpeed }) => {
   }, []);
 
   return (
-    <>
-      <div className="d-flex justify-content-center">
+    <div className="d-row justify-content-center">
+      <div className="col-12">
         <h1 id="carouselTitle" carousel-index="" style={{ color: "white" }}>
           {title}
         </h1>
       </div>
-      <div className="row justify-content-center mt-5">
-        <div className="col-4 ">
+      <div className="col-12">
+        <div className="d-flex justify-content-center gap-3 p-5">
           <img
             src={
               carouselLeftImage === ""
                 ? ""
                 : require(`../../assets/images/services/${carouselLeftImage}`)
             }
-            className="carousel-image"
+            className="carousel-image img img-fluid"
           />
-        </div>
-        <div className="col-4 ">
+
           <img
             src={
               carouselRightImage === ""
                 ? ""
                 : require(`../../assets/images/services/${carouselRightImage}`)
             }
-            className="carousel-image"
+            className="carousel-image img img-fluid"
           />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default Carousel;

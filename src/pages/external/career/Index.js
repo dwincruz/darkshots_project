@@ -85,15 +85,17 @@ const Index = () => {
             />
           </div>
         </div>
-        <div className="row justify-content-center align-items-center gap-2">
+        <div className="row justify-content-center  gap-2">
           {jobPositions.map((jobPosition) => {
             return (
-              <Card
-                key={jobPosition.id}
-                image={jobPosition.image}
-                title={jobPosition.title}
-                subTitle={"Vacancy " + jobPosition.vacancy}
-              ></Card>
+              <div className="col-lg-2 col-md-4 col-sm-6 ">
+                <Card
+                  key={jobPosition.id}
+                  image={jobPosition.image}
+                  title={jobPosition.title}
+                  subTitle={"Vacancy " + jobPosition.vacancy}
+                ></Card>
+              </div>
             );
           })}
         </div>

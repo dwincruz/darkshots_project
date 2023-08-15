@@ -22,16 +22,18 @@ const Team = ({ items, itemCenter, image, title, subTitle }) => {
     textShadow: "2px 2px  4px  #414141",
   };
   return (
-    <div className="row justify-content-center align-items-center gap-2 ">
+    <div className="row justify-content-center align-items-center gap-3 ">
       {enableCenteredImage.map((cardList, index) => {
         return (
-          <CardsInnerText
-            key={cardList.id}
-            image={cardList.image}
-            title={cardList.name}
-            subTitle={cardList.position}
-            style={fontShadow}
-          ></CardsInnerText>
+          <div className="col-2 col-md-2 border">
+            <CardsInnerText
+              key={cardList.id}
+              image={cardList.image}
+              title={cardList.name}
+              subTitle={cardList.position}
+              style={fontShadow}
+            ></CardsInnerText>
+          </div>
         );
       })}
     </div>

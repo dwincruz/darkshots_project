@@ -23,7 +23,7 @@ const ThemeHeader = ({ title, breakWord }) => {
   return (
     <>
       <h1
-        className="custom-headers text-white text-uppercase my-5"
+        className="custom-headers text-uppercase my-5"
         ref={formmattedHeaders}
       ></h1>
     </>
